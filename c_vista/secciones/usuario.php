@@ -9,7 +9,9 @@
 
  ?>
 
+
 <div class="tabla">
+
 
  <center>
    <table cellspacing ="0" colspacing="0">
@@ -21,9 +23,13 @@
 
        </tr>
        <?php
-           $ingreso = new MvcController();
-           $ingreso ->vistaUsuarioController();
-           $borrar ->borrarUsuarioController();
+           $vistaUsuario = new MvcController();
+           $vistaUsuario ->vistaUsuarioController();
+           $vistaUsuario ->borrarUsuarioController();
+
+
+
+
 
 
            if (isset($_GET['action'])) {

@@ -52,8 +52,9 @@ require_once "conexion.php";
            $stmt ->bindParam(":usuario",$datosModel['usuario'],PDO::PARAM_STR);
            $stmt ->bindParam(":password",$datosModel['password'],PDO::PARAM_STR);
            $stmt ->bindParam(":email",$datosModel['email'],PDO::PARAM_STR);
-           $stmt ->bindParam(":id",$datosModel['id'],PDO::PARAM_INT;
+           $stmt ->bindParam(":id",$datosModel['id'],PDO::PARAM_INT);
            $stmt ->execute();
+
 
            if ($stmt ->execute()){
              return "succes";
@@ -62,21 +63,20 @@ require_once "conexion.php";
            }
           $stmt ->close();
        }
-       //ACTUALIZAR USUARIOS
+
+       #BORRAR USUARIO
+
        public function borrarUsuarioModel($datosModel,$tabla){
-           $stmt= Conexion::conectar()->prepare(" DELETE FROM  $tabla WHERE id = :id");
-           $stmt ->bindParam(":id",$datosModel,PDO::PARAM_INT);
-           $stmt ->execute();
+         $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
+         $stmt ->bindParam(":id",$datosModel,PDO::PARAM_INT);
+         if ($stmt ->execute()){
+           return "succes";
+         }else{
+           return "error";
+         }
+         $stmt ->close();
 
-           if ($stmt ->execute()){
-             return "succes";
-           }else{
-             return "error";
-           }
-          $stmt ->close();
        }
-
-
 
 
 

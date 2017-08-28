@@ -124,13 +124,13 @@
 
        //BORRAR USUARIOS
        public function borrarUsuarioController(){
-         if (isset($_GET['idBorrar'])) {
-            $datosController = $_GET['idBorrar'];
-            $respueta = Datos::borrarUsuarioModel($datosController,"usuario");
-            if ($respuesta == "succes") {
-                header ("location: index.php?action=usuario");
-            }
-         }
+             if (isset($_GET['idBorrar'])) {
+                $datosController = $_GET['idBorrar'];
+                $respuesta = Datos::borrarUsuarioModel($datosController,"usuario");
+                if ($respuesta == "succes") {
+                    header("location: index.php?action=usuario");
+                }
+             }
        }
 
   }
